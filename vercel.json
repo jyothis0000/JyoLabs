@@ -2,7 +2,7 @@
     "redirects": [
         {
             "source": "/downloads/bunny/1.0.0/setup.exe",
-            "destination": "https://github.com/jyothis0000/Jyo-Tech/releases/download/bunny-v1.0.0/BunnyAIAssistant_1.0.0_x64-setup.exe",
+            "destination": "https://github.com/jyothis0000/JyoLabs/releases/download/bunny-v1.0.0/BunnyAIAssistant_1.0.0_x64-setup.exe",
             "permanent": false
         }
     ],
