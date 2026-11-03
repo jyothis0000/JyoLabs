@@ -59,7 +59,7 @@ export default function BunnyPrivacy() {
               <li>Clear your chat history at any time with <strong className="text-ink">Clear</strong> in the chat.</li>
               <li>Delete notes in the Notes tab.</li>
               <li>Remove API keys and disconnect Google Calendar in Settings.</li>
-              <li>Uninstalling the app removes the app. To also remove your data, delete the app's folder in <code>%APPDATA%\com.jyothismanoj.jo</code> and <code>%LOCALAPPDATA%\com.jyothismanoj.jo</code>.</li>
+              <li>Uninstalling the app removes the app. To also remove your data, delete the app's folder in <code>%APPDATA%\com.jyothismanoj.bunny</code> and <code>%LOCALAPPDATA%\com.jyothismanoj.bunny</code>.</li>
             </ul>
           </Section>
 

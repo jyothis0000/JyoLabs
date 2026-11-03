@@ -1,6 +1,6 @@
 import type { ComponentType, CSSProperties, ReactNode } from 'react'
 import type { Art } from './components/Decor'
-import { CHROME_STORE_URL_STACKPICKER, CHROME_STORE_URL_WEBHARVEST, CONTACT_EMAIL } from './constants'
+import { BUNNY_DOWNLOAD_PATH, BUNNY_RELEASED, CHROME_STORE_URL_STACKPICKER, CHROME_STORE_URL_WEBHARVEST, CONTACT_EMAIL } from './constants'
 import stackpickerIcon from './assets/stackpicker-icon.png'
 import webharvestIcon from './assets/webharvest-icon.png'
 import bunnyIcon from './assets/bunny-icon.png'
@@ -160,7 +160,9 @@ export const products: Product[] = [
       ['Hands-free settings', 'Switch Bluetooth, Wi-Fi, volume, brightness or dark mode by typing a sentence.'],
     ],
     Figure: BunnyFigure,
-    store: { label: 'Coming to the Microsoft Store', platform: 'windows' },
+    store: BUNNY_RELEASED
+      ? { label: 'Download for Windows', href: BUNNY_DOWNLOAD_PATH, platform: 'windows' }
+      : { label: 'Coming to the Microsoft Store', platform: 'windows' },
     specs: [
       ['AI model', 'Qwen2.5 1.5B, running on your PC'],
       ['Download', '1.1 GB once, then it works offline'],
