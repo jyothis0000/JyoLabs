@@ -1,6 +1,6 @@
 import type { ComponentType, CSSProperties, ReactNode } from 'react'
 import type { Art } from './components/Decor'
-import { BUNNY_DOWNLOAD_PATH, BUNNY_RELEASED, CHROME_STORE_URL_STACKPICKER, CHROME_STORE_URL_WEBHARVEST, CONTACT_EMAIL } from './constants'
+import { BUNNY_STORE_URL, CHROME_STORE_URL_STACKPICKER, CHROME_STORE_URL_WEBHARVEST, CONTACT_EMAIL } from './constants'
 import stackpickerIcon from './assets/stackpicker-icon.png'
 import webharvestIcon from './assets/webharvest-icon.png'
 import bunnyIcon from './assets/bunny-icon.png'
@@ -160,9 +160,7 @@ export const products: Product[] = [
       ['Hands-free settings', 'Switch Bluetooth, Wi-Fi, volume, brightness or dark mode by typing a sentence.'],
     ],
     Figure: BunnyFigure,
-    store: BUNNY_RELEASED
-      ? { label: 'Download for Windows', href: BUNNY_DOWNLOAD_PATH, platform: 'windows' }
-      : { label: 'Coming to the Microsoft Store', platform: 'windows' },
+    store: { label: 'Get it from Microsoft Store', href: BUNNY_STORE_URL, platform: 'windows' },
     specs: [
       ['AI model', 'Qwen2.5 1.5B, running on your PC'],
       ['Download', '1.1 GB once, then it works offline'],
@@ -181,7 +179,7 @@ export const products: Product[] = [
       ['Themes', 'Lavender and Mint, Coral and Sky, or your own colours, for Bunny and the chat.'],
     ],
     steps: [
-      ['Install', 'On first run Bunny downloads its free AI model once, about 1.1 GB.'],
+      ['Install', 'Get Bunny from the Microsoft Store. On first run it downloads its free AI model once, about 1.1 GB.'],
       ['Ask', 'Click Bunny or press Alt+Space and type a question or a command.'],
       ['Get reminded', 'Add notes or connect your calendar, and Bunny rises when it is time.'],
     ],
