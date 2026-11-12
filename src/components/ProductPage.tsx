@@ -3,7 +3,7 @@ import Datasheet from './Datasheet'
 import StoreButton from './StoreButton'
 import SmartLink from './SmartLink'
 import Decor from './Decor'
-import { brandStyle, type Product } from '../products'
+import { brandStyle, categoryOf, type Product } from '../products'
 
 export default function ProductPage({ product: p }: { product: Product }) {
   const privacy = p.links.find(l => l.label === 'Privacy')
@@ -17,7 +17,7 @@ export default function ProductPage({ product: p }: { product: Product }) {
         <Decor name={p.sticker} className="absolute right-4 top-10 w-20 sm:right-6 sm:w-28 lg:top-14 lg:w-36" />
         <div className="flex items-center gap-3">
           <img src={p.icon} alt="" width={36} height={36} className="h-9 w-9 rounded-lg" />
-          <p className="eyebrow">{p.category === 'extension' ? 'Chrome extensions' : 'Software'} / {p.kind === 'Chrome extension' ? 'Extension' : p.kind} · v{p.version}</p>
+          <p className="eyebrow">{categoryOf(p).title} / {({ 'Chrome extension': 'Extension', 'WordPress plugin': 'Plugin' } as Record<string, string>)[p.kind] ?? p.kind} · v{p.version}</p>
         </div>
         <h1 data-fx="type" data-type-on="load" className="display mt-6 text-[clamp(3.5rem,11vw,9rem)]"><span className="brand-text">{p.name}</span></h1>
         <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:items-end">

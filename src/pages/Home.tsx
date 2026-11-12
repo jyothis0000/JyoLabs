@@ -25,13 +25,13 @@ const reasons: [string, string][] = [
 ]
 
 export default function Home() {
-  const [extensions, software] = categories
+  const [extensions, software, plugins] = categories
 
   return (
     <>
       <PageMeta
         title={SITE_NAME}
-        description="StackPicker and WebHarvest for Chrome, and Bunny for Windows: small tools by Jyothis Manoj that cut repetitive work."
+        description="StackPicker and WebHarvest for Chrome, Bunny for Windows, and Translangated and PriceStory for WordPress: small tools by Jyothis Manoj that cut repetitive work."
       />
 
       <section className="relative overflow-hidden">
@@ -51,7 +51,7 @@ export default function Home() {
               <p className="mt-9 max-w-md text-lg leading-relaxed">
                 Ideas get built, tested on real work, and released when they save real time.
               </p>
-              <ul className="mt-9 grid max-w-lg gap-px overflow-hidden rounded-2xl bg-rule sm:grid-cols-2">
+              <ul className="mt-9 grid max-w-lg gap-px overflow-hidden rounded-2xl bg-rule">
                 {categories.map((c, i) => (
                   <li key={c.key}>
                     <a href={`#${c.key}`} className="group flex h-full items-baseline gap-4 bg-page px-5 py-4 transition-colors hover:bg-plate">
@@ -111,6 +111,15 @@ export default function Home() {
           <CategoryHead index={2} title={software.title} blurb={software.blurb} sticker="flask" markClass="-top-16 w-28 sm:w-32" />
         </div>
         {software.products.map(p => <SoftwareFeature key={p.key} p={p} />)}
+      </section>
+
+      <section id={plugins.key} className="scroll-mt-20 border-t border-rule">
+        <div className="mx-auto w-full max-w-6xl px-4 pb-16 pt-24 sm:px-6 lg:pt-32">
+          <CategoryHead index={3} title={plugins.title} blurb={plugins.blurb} sticker="atom" />
+          <div className="mt-14 grid gap-6 lg:grid-cols-2">
+            {plugins.products.map(p => <ExtensionCard key={p.key} p={p} />)}
+          </div>
+        </div>
       </section>
 
       <section className="border-t border-rule">

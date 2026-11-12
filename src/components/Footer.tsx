@@ -13,7 +13,7 @@ const author = [
 export default function Footer() {
   return (
     <footer className="mt-auto border-t border-rule">
-      <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-[1.4fr_1.2fr_0.8fr_0.8fr]">
+      <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-[1.3fr_1.1fr_0.8fr_1.1fr_0.8fr]">
         <div>
           <Link to="/" className="flex items-center gap-2.5">
             <img src={logo} alt={SITE_NAME} width={130} height={80} loading="lazy" className="h-20 w-auto" />

@@ -1,6 +1,11 @@
 import type { ComponentType, CSSProperties, ReactNode } from 'react'
 import type { Art } from './components/Decor'
-import { BUNNY_STORE_URL, CHROME_STORE_URL_STACKPICKER, CHROME_STORE_URL_WEBHARVEST, CONTACT_EMAIL } from './constants'
+import { BUNNY_STORE_URL, CHROME_STORE_URL_STACKPICKER, CHROME_STORE_URL_WEBHARVEST, CONTACT_EMAIL, TRANSLANGATED_SUPPORT_URL, TRANSLANGATED_URL } from './constants'
+import translangatedIcon from './assets/translangated-icon.png'
+import translangatedBanner from './assets/translangated-banner.png'
+import pricestoryIcon from './assets/pricestory-icon.png'
+import pricestoryBanner from './assets/pricestory-banner.png'
+import bannerFigure from './figures/banner'
 import stackpickerIcon from './assets/stackpicker-icon.png'
 import webharvestIcon from './assets/webharvest-icon.png'
 import bunnyIcon from './assets/bunny-icon.png'
@@ -12,7 +17,7 @@ import BunnyFigure from './figures/bunny/figure'
 
 export interface Product {
   key: string
-  category: 'extension' | 'software'
+  category: 'extension' | 'software' | 'plugin'
   brand: [string, string]
   sticker: Art
   name: string
@@ -26,7 +31,7 @@ export interface Product {
   lede: string
   useCases: [string, string][]
   Figure: ComponentType<{ fig?: string }>
-  store: { label: string; href?: string; platform: 'chrome' | 'windows' }
+  store: { label: string; href?: string; platform: 'chrome' | 'windows' | 'wordpress' }
   specs: [string, string][]
   featuresTitle: string
   features: [string, string][]
@@ -167,7 +172,8 @@ export const products: Product[] = [
       ['Commands', 'Bluetooth, Wi-Fi, volume, brightness, dark mode, lock, screenshot, open apps'],
       ['Reminders', 'Notes, and Google Calendar meetings 5 to 60 minutes ahead'],
       ['Paid models', 'Optional: OpenAI, Anthropic, Gemini, Groq, OpenRouter'],
-      ['Open chat', 'Click Bunny or press Alt+Space'],
+      ['Open chat', 'Click Bunny or press Alt+Space (press again to close)'],
+      ['Show or hide Bunny', 'Alt+B'],
     ],
     featuresTitle: 'What Bunny does',
     features: [
@@ -180,7 +186,7 @@ export const products: Product[] = [
     ],
     steps: [
       ['Install', 'Get Bunny from the Microsoft Store. On first run it downloads its free AI model once, about 1.1 GB.'],
-      ['Ask', 'Click Bunny or press Alt+Space and type a question or a command.'],
+      ['Ask', 'Click Bunny or press Alt+Space and type a question or a command. Alt+B hides or shows Bunny.'],
       ['Get reminded', 'Add notes or connect your calendar, and Bunny rises when it is time.'],
     ],
     shot: { src: bunnyReminder, alt: 'Bunny rising above the Windows taskbar under a reminder card with Open note and Snooze 5 min buttons', caption: 'A note reminder in the app: Bunny rises from the taskbar with Open note and Snooze.' },
@@ -190,21 +196,131 @@ export const products: Product[] = [
       { label: 'Contact', to: `mailto:${CONTACT_EMAIL}?subject=Bunny` },
     ],
   },
+  {
+    key: 'translangated',
+    category: 'plugin',
+    brand: ['#3b5bdb', '#2dd4bf'],
+    sticker: 'lightning',
+    name: 'Translangated',
+    path: '/translangated',
+    fig: 'Fig 4',
+    kind: 'WordPress plugin',
+    version: '1.0.0',
+    icon: translangatedIcon,
+    summary: 'Make a WordPress site multilingual, for free.',
+    pitch: 'Every language. No paid tier.',
+    lede: 'Translate every page, post, menu, widget, WooCommerce product and theme string from the front end, while you see the live page. No licence key, no paid tiers and no word limits: every feature is included.',
+    useCases: [
+      ['Multilingual stores', 'Translate WooCommerce products, cart, checkout and order emails, so customers buy in their own language.'],
+      ['Agencies', 'Hand clients a translated site without per-word fees or a licence key to renew.'],
+      ['International SEO', 'Translated URLs, titles and meta, hreflang tags and sitemaps, so search engines index each language.'],
+      ['Fast launches', 'Machine-translate a whole site with your own DeepL or Google key, then polish it in the visual editor.'],
+    ],
+    Figure: bannerFigure(translangatedBanner, 'Translangated banner: translate your WordPress site into any language, with greetings in English, Spanish, French, German and Japanese'),
+    store: { label: 'Get it on WordPress.org', href: TRANSLANGATED_URL, platform: 'wordpress' },
+    specs: [
+      ['Editor', 'Visual, on the live page'],
+      ['Machine translation', 'DeepL (Free or Pro) or Google, with your own key'],
+      ['Languages', 'Unlimited, including regional variants like pt_BR'],
+      ['Works with', 'Gutenberg, Elementor, WPBakery, WooCommerce'],
+      ['Requires', 'WordPress 6.9+, PHP 7.4+'],
+      ['Price', 'Free, every feature included'],
+    ],
+    featuresTitle: 'What Translangated does',
+    features: [
+      ['Visual editor', 'Click any text on the page and type its translation, with a live preview. Images, alt text and links too.'],
+      ['String translation', 'Theme and plugin text, emails and URL slugs, in the same editor.'],
+      ['Automatic translation', 'DeepL or Google Translate with your own API key. Review and edit every machine translation.'],
+      ['Multilingual SEO', 'Translated slugs, titles, meta and social tags, language URLs like example.com/es/, hreflang and sitemaps.'],
+      ['Language switcher', 'Floating, in a menu, as a shortcode, a Gutenberg block or an Elementor widget, with flags.'],
+      ['Visitor language', 'First-time visitors land in their browser language. Works with page caches and never redirects crawlers.'],
+    ],
+    steps: [
+      ['Install', 'Add Translangated from Plugins → Add New and choose your languages.'],
+      ['Translate', 'Open any page in the visual editor and click text to translate it, or run automatic translation.'],
+      ['Publish', 'Turn a language on when it is ready; the switcher and language URLs appear.'],
+    ],
+    privacy: 'Translations are stored in your own WordPress database. Translangated contacts no outside service unless you turn on automatic translation with your own DeepL or Google key.',
+    links: [
+      { label: 'Support', to: TRANSLANGATED_SUPPORT_URL },
+      { label: 'Contact', to: `mailto:${CONTACT_EMAIL}?subject=Translangated` },
+    ],
+  },
+  {
+    key: 'pricestory',
+    category: 'plugin',
+    brand: ['#4f46e5', '#22c55e'],
+    sticker: 'sparkles',
+    name: 'PriceStory',
+    path: '/pricestory',
+    fig: 'Fig 5',
+    kind: 'WooCommerce plugin',
+    version: '1.0.0',
+    icon: pricestoryIcon,
+    summary: 'A price history chart on every WooCommerce product.',
+    pitch: 'Show shoppers the story behind a price.',
+    lede: 'Adds a Price history button under the price on every product page. One click opens a chart of each rise and drop with the lowest and highest price, so shoppers can see a sale is a real sale.',
+    useCases: [
+      ['Honest sales', 'Prove a discount is real: shoppers see what the price was before and after.'],
+      ['Ready-to-buy shoppers', 'Badges like "Lowest price ever" or "23% below its highest price" help a customer decide today.'],
+      ['Big-ticket stores', 'Electronics and other products whose prices move often and get compared before checkout.'],
+      ['Store owners', 'See every price change per product without keeping a spreadsheet.'],
+    ],
+    Figure: bannerFigure(pricestoryBanner, 'PriceStory banner: a Price history popup with current, lowest and highest price and a step chart of rises and drops'),
+    store: { label: 'Coming to WordPress.org', platform: 'wordpress' },
+    specs: [
+      ['Shows', 'Step chart, current, lowest and highest price, recent changes'],
+      ['Ranges', '1M, 3M, 6M, 1Y and All'],
+      ['Records', 'Every price change: editor, quick and bulk edit, imports, REST API, scheduled sales'],
+      ['Products', 'Simple, external and variable (lowest variation price)'],
+      ['Requires', 'WooCommerce 7.0+, WordPress 6.0+, PHP 7.4+'],
+      ['Settings', 'None: activate it and it works'],
+    ],
+    featuresTitle: 'What PriceStory does',
+    features: [
+      ['Price history button', 'A small button under the price on every single product page.'],
+      ['Step chart', 'Green dots for drops, red for rises. Hover to see the date, price and change.'],
+      ['Deal badge', '"Lowest price ever" or "23% below its highest price".'],
+      ['Time ranges', '1M to All, shown once there is enough history.'],
+      ['Recent changes', 'The latest price changes with the amount and percentage of each.'],
+      ['Phones and screen readers', 'A responsive popup with keyboard and screen reader support.'],
+    ],
+    steps: [
+      ['Install', 'Activate PriceStory on a WooCommerce store.'],
+      ['Record', 'From then on, every price change is saved automatically.'],
+      ['Show', 'Shoppers click Price history under the price to open the chart.'],
+    ],
+    privacy: 'No settings, no external services and no tracking. Price history is stored in your own database, and the chart library ships inside the plugin.',
+    links: [
+      { label: 'Contact', to: `mailto:${CONTACT_EMAIL}?subject=PriceStory` },
+    ],
+  },
 ]
 
 export const categories = [
   {
     key: 'extensions',
     title: 'Chrome extensions',
+    short: 'Extensions',
     blurb: 'Research tools for sales, marketing, agency and e-commerce teams. They work on the page you are viewing and keep your data in your browser.',
     products: products.filter(p => p.category === 'extension'),
   },
   {
     key: 'software',
     title: 'Software',
+    short: 'Software',
     blurb: 'Desktop software for people who want AI help without handing their data to a cloud service.',
     products: products.filter(p => p.category === 'software'),
   },
+  {
+    key: 'plugins',
+    title: 'WordPress plugins',
+    short: 'Plugins',
+    blurb: 'Free plugins for WordPress and WooCommerce sites, with every feature included. Your data stays in your own database.',
+    products: products.filter(p => p.category === 'plugin'),
+  },
 ]
+
+export const categoryOf = (p: Product) => categories.find(c => c.products.includes(p))!
 
 export const brandStyle = (p: Product) => ({ '--brand-a': p.brand[0], '--brand-b': p.brand[1] }) as CSSProperties
