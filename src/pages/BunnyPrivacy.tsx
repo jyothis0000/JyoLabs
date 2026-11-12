@@ -34,6 +34,7 @@ export default function BunnyPrivacy() {
               <li><strong className="text-ink">Chat history, settings and theme</strong> are stored in the app's folder on your PC.</li>
               <li><strong className="text-ink">Notes and note reminders</strong> are stored in <code>notes.json</code> in the app's folder on your PC.</li>
               <li><strong className="text-ink">Device commands</strong> (Bluetooth, Wi-Fi, volume, brightness, dark mode, lock, screenshots, opening apps and Settings pages) run on your PC. To open apps by name, Bunny reads the list of apps in your Start menu locally; that list never leaves your PC.</li>
+              <li><strong className="text-ink">File search</strong> ("find my resume pdf file") looks at file names in your Desktop, Documents, Downloads, Pictures, Videos, Music and OneDrive folders, on your PC. It reads names only, not what is inside files. The search and its results are never sent to any AI model, including the optional paid ones.</li>
             </ul>
           </Section>
 
